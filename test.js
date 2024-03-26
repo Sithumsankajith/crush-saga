@@ -49,17 +49,17 @@ function startGame() {
     console.log(board);
 }
 
-function dragStart() {
-    //this refers to tile that was clicked on for dragging
+function dragStart(e) {
+    e.preventDefault(); // Prevent default behavior to avoid scrolling on touch devices
     currTile = this;
 }
 
 function dragOver(e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default behavior to avoid scrolling on touch devices
 }
 
 function dragEnter(e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default behavior to avoid scrolling on touch devices
 }
 
 function dragLeave() {
@@ -67,17 +67,15 @@ function dragLeave() {
 }
 
 function dragDrop() {
-    //this refers to the target tile that was dropped on
     otherTile = this;
 }
 
 function dragEnd() {
-
     if (currTile.src.includes("blank") || otherTile.src.includes("blank")) {
         return;
     }
 
-    let currCoords = currTile.id.split("-"); // id="0-0" -> ["0", "0"]
+    let currCoords = currTile.id.split("-");
     let r = parseInt(currCoords[0]);
     let c = parseInt(currCoords[1]);
 
@@ -87,7 +85,6 @@ function dragEnd() {
 
     let moveLeft = c2 == c-1 && r == r2;
     let moveRight = c2 == c+1 && r == r2;
-
     let moveUp = r2 == r-1 && c == c2;
     let moveDown = r2 == r+1 && c == c2;
 
@@ -108,6 +105,13 @@ function dragEnd() {
         }
     }
 }
+
+// Replace mouse event listeners with touch event listeners
+tile.addEventListener("touchstart", dragStart);
+tile.addEventListener("touchmove", dragOver);
+tile.addEventListener("touchend", dragDrop);
+tile.addEventListener("touchcancel", dragEnd);
+
 
 function crushCandy() {
     //crushFive();
