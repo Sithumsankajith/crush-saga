@@ -23,11 +23,11 @@ Crush Saga is a fun and addictive match-three game inspired by Candy Crush. Swap
 3. Start playing Crush Saga!
 
 ## Screenshots
-![Screenshot 1](.png)
-![Screenshot 2](screenshot2.png)
+![Screenshot 1](Screenshots/Screenshot(100).png)
+![Screenshot 2](Screenshots/Screenshot(101).png)
 
 ## Demo
-[Play Crush Saga](https://your-hosted-game-url.com)
+[Play Crush Saga](https://sithumsankajith.github.io/crush-saga/)
 
 ## Credits
-- Developed by [Your Name]
+- Developed by [@sithumsankajith]
